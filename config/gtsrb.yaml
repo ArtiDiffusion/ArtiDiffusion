@@ -1,0 +1,42 @@
+dataset_name: gtsrb
+device: cuda:0
+
+batch: 128  # CIFAR10, GTSRB
+
+epoch: 7e5
+save_epoch: 10000
+sample_epoch: 50000
+sample_num: 4
+lr: 2e-5
+loss_type: l2
+sample_type: ddim
+
+image_size: 32  # CIFAR10, GTSRB
+
+grad_acc: 1
+parallel: 0
+path: None
+mode: train
+
+unet:
+  dim: 64
+  dim_mults: (1, 2, 2, 2)  # CIFAR10, GTSRB
+  dropout: 0  # GTSRB CelebA
+
+diffusion:
+  sampling_timesteps: 250
+  timesteps: 1000
+  beta_schedule: sigmoid
+  beta_start: 1e-4
+  beta_end: 2e-2
+
+# only backdoor diffusion will use this
+ratio: 0.05
+gamma: 1e-3
+p_start: 100
+p_end: 200
+
+
+defaults:
+  - attack: benign
+  - artifact: benign

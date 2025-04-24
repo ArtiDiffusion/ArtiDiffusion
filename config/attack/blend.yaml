@@ -1,0 +1,4 @@
+name: blend
+mode: train
+tg_path: ../ArtiDiffusion/resource/blend/hello_kitty.jpeg
+blended_coeff: 0.2
